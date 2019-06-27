@@ -6,8 +6,8 @@ import QtQuick.Controls 2.2
 Window {
     id:window
     visible: true
-    width: 600
-    height: 600
+    width: 900
+    height: 900
     title: qsTr("Hello World")
 
     Item{
@@ -21,7 +21,7 @@ Window {
 
         Grid{
             anchors.fill: root
-            columns: 2
+            columns: 3
 
             Image{
                 id:img
@@ -129,9 +129,17 @@ Window {
                 height: 300
             }
 
-            Ripple{
+            InputParam{
                 width: 300
                 height: 300
+                iResolution:Qt.size(width,height)
+            }
+
+            InputParam{
+                width: 300
+                height: 300
+                iResolution: Qt.size(width,height)
+                fragmentShader: "qrc:/thebookofshaders/helloworld.frg"
             }
         }
 

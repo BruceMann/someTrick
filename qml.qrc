@@ -4,5 +4,7 @@
         <file>HeartBeat.qml</file>
         <file>TestShader.qml</file>
         <file>Ripple.qml</file>
+        <file>Hermite.qml</file>
+        <file>InputParam.qml</file>
     </qresource>
 </RCC>
