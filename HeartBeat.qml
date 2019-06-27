@@ -7,12 +7,13 @@ Item {
         property real iTime: 0
 
         Timer{
+            id:timer
             running: true
             triggeredOnStart: true
             repeat: true
             interval: 33
             onTriggered: {
-                effect.iTime += 0.1
+                effect.iTime += timer.interval/1000.0
             }
         }
 

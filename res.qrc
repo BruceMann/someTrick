@@ -5,5 +5,8 @@
         <file>images/v2-f99f4da5581dcac3b0a5325e35f7fe8a_hd.jpg</file>
         <file>shaders/inputparam.frg</file>
         <file>thebookofshaders/helloworld.frg</file>
+        <file>thebookofshaders/AlgorithmicDrawing.frg</file>
+        <file>thebookofshaders/Colors.frg</file>
+        <file>thebookofshaders/Silexars.frg</file>
     </qresource>
 </RCC>

@@ -10,19 +10,20 @@ ShaderEffect{
     property size iResolution:Qt.size(effect.width,effect.height)
     property string frgShaderFile:"qrc:/shaders/inputparam.frg"
     Timer{
+        id:timer
         running: true
         triggeredOnStart: true
         repeat: true
         interval: 33
         onTriggered: {
-            effect.iTime += 0.1
+            effect.iTime += timer.interval/1000.0
         }
     }
 
     MouseArea{
         anchors.fill: parent
         onMouseXChanged: {
-            console.log(mouseX,mouseY)
+//            console.log(mouseX,mouseY)
              parent.iMouse = Qt.point(mouseX,mouseY)
         }
 

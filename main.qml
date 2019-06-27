@@ -138,8 +138,17 @@ Window {
             InputParam{
                 width: 300
                 height: 300
-                iResolution: Qt.size(width,height)
                 fragmentShader: "qrc:/thebookofshaders/helloworld.frg"
+            }
+            InputParam{
+                width: 300
+                height: 300
+                fragmentShader: "qrc:/thebookofshaders/AlgorithmicDrawing.frg"
+            }
+            InputParam{
+                width: 300
+                height: 300
+                fragmentShader: "qrc:/thebookofshaders/Silexars.frg"
             }
         }
 

@@ -20,7 +20,7 @@ void main(void)
     vec2 mouse = iMouse/iResolution;
     vec2 st = qt_TexCoord0.xy;
 
-    float d = length(abs(st - mouse));
+    float d = length(st - mouse);
 
     vec3 col = vec3(circle(st,0.2));
     //vec3 col = vec3(fract(d*10*(deltaT+2)));
