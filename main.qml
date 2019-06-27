@@ -32,7 +32,7 @@ Window {
                 Rectangle{
                     anchors.fill: parent
                     color:"#00000000"
-                    border.color: "red"
+                    border.color: "gray"
                     border.width: 1
                 }
                 Component.onCompleted: {
@@ -57,7 +57,7 @@ Window {
                 Rectangle{
                     anchors.fill: parent
                     color:"#00000000"
-                    border.color: "red"
+                    border.color: "gray"
                     border.width: 1
                 }
 
@@ -107,19 +107,25 @@ Window {
             uniform sampler2D noise;
             uniform lowp float qt_Opacity;
             uniform lowp float time;
+
+            float circle(vec2 st,float r){
+                float dist = length(vec2(0.5)-st);
+                return 1.0-smoothstep(r-0.01,r+0.01,dist*2.0);
+            }
+
             void main() {
                 lowp vec4 tex = texture2D(src, coord);
                 lowp vec4 noiseTex =  texture2D(noise, coord);
 
+                vec3 color;
 //                //gray texture
 //                gl_FragColor = vec4(vec3(dot(tex.rgb,
 //                                    vec3(0.344, 0.5, 0.156))),
 //                                         tex.a) * qt_Opacity;
                 lowp float alpha = 1.0 - step(time,noiseTex.r);
 
-                gl_FragColor = vec4(vec3(tex.rgb),alpha)*qt_Opacity;
-//                gl_FragColor = vec4(vec3(noiseTex.rgb),alpha)*qt_Opacity;
-//                gl_FragColor = vec4(1.0,0.0,0.0,noiseTex.r)*qt_Opacity;
+                color = mix(vec3(1.0),vec3(tex.rgb),circle(coord,0.99));
+                gl_FragColor = vec4(color,alpha)*qt_Opacity;
             }"
                 }
             }
@@ -128,13 +134,11 @@ Window {
                 width: 300
                 height: 300
             }
-
             InputParam{
                 width: 300
                 height: 300
                 iResolution:Qt.size(width,height)
             }
-
             InputParam{
                 width: 300
                 height: 300
@@ -150,7 +154,16 @@ Window {
                 height: 300
                 fragmentShader: "qrc:/thebookofshaders/Silexars.frg"
             }
+            InputParam{
+                width: 300
+                height: 300
+                fragmentShader:"qrc:/thebookofshaders/Color_Mix.frg"
+            }
+            InputParam{
+                width: 300
+                height: 300
+                fragmentShader:"qrc:/thebookofshaders/Color_HSB.frg"
+            }
         }
-
     }
 }
