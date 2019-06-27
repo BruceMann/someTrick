@@ -143,11 +143,14 @@ Window {
                 width: 300
                 height: 300
                 fragmentShader: "qrc:/thebookofshaders/helloworld.frg"
+//                fragmentShader: "qrc:/thebookofshaders/Shapes.frg"
             }
             InputParam{
                 width: 300
                 height: 300
-                fragmentShader: "qrc:/thebookofshaders/AlgorithmicDrawing.frg"
+//                fragmentShader: "qrc:/thebookofshaders/AlgorithmicDrawing.frg"
+//                fragmentShader: "qrc:/thebookofshaders/Shapes_rect.frg"
+                fragmentShader: "qrc:/thebookofshaders/Shapes_circle.frg"
             }
             InputParam{
                 width: 300
