@@ -11,5 +11,6 @@
         <file>thebookofshaders/Color_HSB.frg</file>
         <file>thebookofshaders/Shapes_circle.frg</file>
         <file>thebookofshaders/Shapes_rect.frg</file>
+        <file>thebookofshaders/Polar_shapes.frg</file>
     </qresource>
 </RCC>

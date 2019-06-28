@@ -5,8 +5,10 @@ import QtQuick.Controls 2.2
 
 Window {
     id:window
+    property int cellSize: 300
+
     visible: true
-    width: 900
+    width: cellSize*4
     height: 900
     title: qsTr("Hello World")
 
@@ -21,7 +23,7 @@ Window {
 
         Grid{
             anchors.fill: root
-            columns: 3
+            columns: window.width/window.cellSize
 
             Image{
                 id:img
@@ -75,7 +77,7 @@ Window {
                         NumberAnimation{duration: 2000;to:1.0}
                         NumberAnimation{duration: 2000;to:0.0}
                         loops:Animation.Infinite
-//                        running: false
+                        //                        running: false
                     }
 
                     MouseArea{
@@ -143,14 +145,22 @@ Window {
                 width: 300
                 height: 300
                 fragmentShader: "qrc:/thebookofshaders/helloworld.frg"
-//                fragmentShader: "qrc:/thebookofshaders/Shapes.frg"
+                //                fragmentShader: "qrc:/thebookofshaders/Shapes.frg"
             }
-            InputParam{
+            Rectangle{
                 width: 300
                 height: 300
-//                fragmentShader: "qrc:/thebookofshaders/AlgorithmicDrawing.frg"
-//                fragmentShader: "qrc:/thebookofshaders/Shapes_rect.frg"
-                fragmentShader: "qrc:/thebookofshaders/Shapes_circle.frg"
+                color:"black"
+                InputParam{
+                    anchors.centerIn: parent
+                    width: img.paintedWidth
+                    height: img.paintedHeight
+                    src:img
+
+                    //                fragmentShader: "qrc:/thebookofshaders/AlgorithmicDrawing.frg"
+                    //                fragmentShader: "qrc:/thebookofshaders/Shapes_rect.frg"
+                    fragmentShader: "qrc:/thebookofshaders/Shapes_circle.frg"
+                }
             }
             InputParam{
                 width: 300
@@ -167,6 +177,7 @@ Window {
                 height: 300
                 fragmentShader:"qrc:/thebookofshaders/Color_HSB.frg"
             }
+
         }
     }
 }

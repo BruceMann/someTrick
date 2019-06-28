@@ -8,6 +8,7 @@ ShaderEffect{
     property point iMouse:Qt.point(0.0,0.0)
     property bool hover: true
     property size iResolution:Qt.size(effect.width,effect.height)
+    property variant src
     property string frgShaderFile:"qrc:/shaders/inputparam.frg"
     Timer{
         id:timer
