@@ -177,6 +177,11 @@ Window {
                 height: 300
                 fragmentShader:"qrc:/thebookofshaders/Color_HSB.frg"
             }
+            InputParam{
+                width: 300
+                height: 300
+                fragmentShader: "qrc:/thebookofshaders/Polar_shapes.frg"
+            }
 
         }
     }
