@@ -12,5 +12,8 @@
         <file>thebookofshaders/Shapes_circle.frg</file>
         <file>thebookofshaders/Shapes_rect.frg</file>
         <file>thebookofshaders/Polar_shapes.frg</file>
+        <file>thebookofshaders/Translate.frg</file>
+        <file>thebookofshaders/Rotations.frg</file>
+        <file>thebookofshaders/Patterns.frg</file>
     </qresource>
 </RCC>

@@ -182,6 +182,12 @@ Window {
                 height: 300
                 fragmentShader: "qrc:/thebookofshaders/Polar_shapes.frg"
             }
+            InputParam{
+                width: 300
+                height: 300
+                //fragmentShader: "qrc:/thebookofshaders/Translate.frg"
+                fragmentShader: "qrc:/thebookofshaders/Rotations.frg"
+            }
 
         }
     }

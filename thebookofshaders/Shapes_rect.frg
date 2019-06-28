@@ -33,7 +33,7 @@ void main(){
     pct *= (tr.x*tr.y);
 
     color = mix(vec3(0.0,0.0,0.0),vec3(pct),
-        genline(st,true,vec2(0.12),0.025)
+         genline(st,true,vec2(0.12),0.025)
         *genline(st,true,vec2(0.66),0.025)
         *genline(st,true,vec2(0.87),0.025)
         *genline(st,false,vec2(0.2),0.025)
