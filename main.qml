@@ -188,6 +188,12 @@ Window {
                 //fragmentShader: "qrc:/thebookofshaders/Translate.frg"
                 fragmentShader: "qrc:/thebookofshaders/Rotations.frg"
             }
+            InputParam{
+                width: 300
+                height: 300
+                //fragmentShader: "qrc:/thebookofshaders/Translate.frg"
+                fragmentShader: "qrc:/thebookofshaders/Patterns.frg"
+            }
 
         }
     }

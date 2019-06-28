@@ -15,5 +15,6 @@
         <file>thebookofshaders/Translate.frg</file>
         <file>thebookofshaders/Rotations.frg</file>
         <file>thebookofshaders/Patterns.frg</file>
+        <file>thebookofshaders/CommonFunc.frg</file>
     </qresource>
 </RCC>
