@@ -3,6 +3,9 @@
 precision mediump float;
 #endif
 
+#define PI 3.14159265359
+#define TWO_PI 6.28318530718
+
 uniform vec2 iResolution;
 uniform float iTime;
 //uniform vec2 iMouse;
@@ -18,9 +21,19 @@ void main(){
     float r = length(st);
     float a = atan(st.y,st.x);
 
-    float f = abs(sin(4.0*a));
-    color = vec3(smoothstep(r,r+0.02,f));
+    float N = floor(iTime)+3.0;
+    float raduis = 0.5;
+    float n = TWO_PI/float(N);
+
+    float f = cos(floor(0.5+a/n)*n-a)*r;
+
+    color = vec3(1.0-smoothstep(raduis,raduis+0.01,f));
     //color = vec3(f);
 
-    gl_FragColor = vec4(color*vec3(51,167,0)/255.0,1.0);
+    //Polar shapes
+    //float f = abs(sin(4.0*a));
+    //color = vec3(smoothstep(r,r+0.01,f));
+    //color = vec3(f);
+
+    gl_FragColor = vec4(color,1.0);
 }
