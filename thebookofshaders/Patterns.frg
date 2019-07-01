@@ -24,6 +24,31 @@ vec2 tile(vec2 st,float zoom){
     return fract(st);
 }
 
+vec2 brickTile(vec2 st,float room){
+    st *= room;
+    st.x += step(1.0,mod(st.y,2.0))*0.5;
+    return fract(st);
+}
+
+vec2 movingTile(vec2 st,float room,float speed){
+    st*=room;
+    float time = iTime*speed;
+    if(fract(time)>0.5){
+        if(fract(st.y*0.5)>0.5){
+            st.x+=fract(time)*2.0;
+        }else{
+            st.x-=fract(time)*2.0;
+        }
+    }else{
+        if(fract(st.x*0.5)>0.5){
+            st.y+=fract(time)*2.0;
+        }else{
+            st.y-=fract(time)*2.0;
+        }
+    }
+    return fract(st);
+}
+
 float box(vec2 st,vec2 size,float smoothEdges){
     size = vec2(0.5)-size*0.5;
     vec2 aa = vec2(smoothEdges*.5);
@@ -44,10 +69,14 @@ void main(void){
     vec2 st = vec2(qt_TexCoord0.x,1.0-qt_TexCoord0.y);
     vec3 color = vec3(0.0);
 
-    st = tile(st,4);
-    st = rotate2D(st,PI*0.25);
+    //st = tile(st,4);
+    //st = rotate2D(st,PI*0.25);
 
-    color = vec3(box(st,vec2(0.7),0.01));
-
+    //st/=vec2(2.15,0.65);
+    //st = brickTile(st,12);
+    st = movingTile(st,10,0.5);
+    color = 1.0 - vec3(circle(st,0.3));
+    //color = vec3(box(st,vec2(0.9),0.01));
+    //color = vec3(st.x,st.y,0.0);
     gl_FragColor = vec4(color,1.0);
 }
