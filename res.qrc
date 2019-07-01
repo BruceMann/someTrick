@@ -18,5 +18,6 @@
         <file>thebookofshaders/CommonFunc.frg</file>
         <file>thebookofshaders/Random2D.frg</file>
         <file>thebookofshaders/Noise.frg</file>
+        <file>thebookofshaders/lavalamp.frg</file>
     </qresource>
 </RCC>
