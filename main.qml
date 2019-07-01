@@ -188,7 +188,7 @@ Window {
                 width: 300
                 height: 300
                 //fragmentShader: "qrc:/thebookofshaders/Translate.frg"
-                fragmentShader: "qrc:/thebookofshaders/Rotations.frg"
+                fragmentShader: "qrc:/thebookofshaders/FBM.frg"
             }
             InputParam{
                 width: 300

@@ -19,5 +19,6 @@
         <file>thebookofshaders/Random2D.frg</file>
         <file>thebookofshaders/Noise.frg</file>
         <file>thebookofshaders/lavalamp.frg</file>
+        <file>thebookofshaders/FBM.frg</file>
     </qresource>
 </RCC>
