@@ -180,6 +180,7 @@ Window {
             InputParam{
                 width: 300
                 height: 300
+                 src:img
 //                fragmentShader: "qrc:/thebookofshaders/Polar_shapes.frg"
                 fragmentShader: "qrc:/thebookofshaders/lavalamp.frg"
             }

@@ -10,6 +10,7 @@ uniform vec2 iResolution;
 uniform float iTime;
 //uniform vec2 iMouse;
 varying vec2 qt_TexCoord0;
+uniform sampler2D src;
 
 vec3 mod289(vec3 x){return x-floor(x*(1.0/289.0))*289.0;}
 vec2 mod289(vec2 x){return x-floor(x*(1.0/289.0))*289.0;}
@@ -109,6 +110,7 @@ float lines(in vec2 pos,float b){
 }
 
 void main(){
+    vec4 tex = texture2D(src, qt_TexCoord0);
     vec2 st = vec2(qt_TexCoord0.x,1.0-qt_TexCoord0.y);
     vec3 color = vec3(0.0);
 
@@ -126,7 +128,8 @@ void main(){
     vel = vec2(cos(a),sin(a));
     DF += snoise(pos+vel)*.25+.25;
 
-    color = vec3( smoothstep(.7,.75,fract(DF)) );
-
-    gl_FragColor = vec4(color,1.0);
+    color = vec3( smoothstep(.5,.75,fract(DF)) );
+    color *= (vec3(1.0)-vec3(0,134,139)/255.0);
+    //color *= tex.rgb;
+    gl_FragColor = vec4(1.0-color,1.0);
 }
