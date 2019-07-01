@@ -17,5 +17,6 @@
         <file>thebookofshaders/Patterns.frg</file>
         <file>thebookofshaders/CommonFunc.frg</file>
         <file>thebookofshaders/Random2D.frg</file>
+        <file>thebookofshaders/Noise.frg</file>
     </qresource>
 </RCC>
