@@ -16,5 +16,6 @@
         <file>thebookofshaders/Rotations.frg</file>
         <file>thebookofshaders/Patterns.frg</file>
         <file>thebookofshaders/CommonFunc.frg</file>
+        <file>thebookofshaders/Random2D.frg</file>
     </qresource>
 </RCC>

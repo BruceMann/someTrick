@@ -65,6 +65,36 @@ float circle(in vec2 _st, in float _radius){
                          dot(l,l)*4.0);
 }
 
+vec2 rotateTilePattern(vec2 st){
+    st*=2.0;
+
+    // import !!! Give each cell an index number accroding to its position
+    float index = 0.0;
+    index+=step(1.0,mod(st.x,2.0));
+    index+=step(1.0,mod(st.y,2.0))*2.0;
+
+    //      |
+    //  2   |   3
+    //      |
+    //--------------
+    //      |
+    //  0   |   1
+    //      |
+
+    //Make each cell between 0.0-1.0
+    st = fract(st);
+
+    //Rotate each cell accroding to the index
+    if(index==1.0){
+        st = rotate2D(st,PI*0.5);
+    }else if(index==2.0){
+        st = rotate2D(st,PI*-0.5);
+    }else if(index==3.0){
+        st = rotate2D(st,PI);
+    }
+    return st;
+}
+
 void main(void){
     vec2 st = vec2(qt_TexCoord0.x,1.0-qt_TexCoord0.y);
     vec3 color = vec3(0.0);
@@ -74,9 +104,13 @@ void main(void){
 
     //st/=vec2(2.15,0.65);
     //st = brickTile(st,12);
-    st = movingTile(st,10,0.5);
-    color = 1.0 - vec3(circle(st,0.3));
+    //st = movingTile(st,10,0.5);
+
+    st = tile(st,3.0);
+    st = rotateTilePattern(st);
+
+    //color = 1.0 - vec3(circle(st,0.3));
     //color = vec3(box(st,vec2(0.9),0.01));
-    //color = vec3(st.x,st.y,0.0);
+    color = vec3(step(st.y,st.x));
     gl_FragColor = vec4(color,1.0);
 }

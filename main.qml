@@ -192,7 +192,8 @@ Window {
                 width: 300
                 height: 300
                 //fragmentShader: "qrc:/thebookofshaders/Translate.frg"
-                fragmentShader: "qrc:/thebookofshaders/Patterns.frg"
+//                fragmentShader: "qrc:/thebookofshaders/Patterns.frg"
+                fragmentShader: "qrc:/thebookofshaders/Random2D.frg"
             }
 
         }
