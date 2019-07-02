@@ -144,7 +144,8 @@ Window {
             InputParam{
                 width: 300
                 height: 300
-                fragmentShader: "qrc:/thebookofshaders/helloworld.frg"
+                fragmentShader: "qrc:/thebookofshaders/Seascape.frg"
+                //fragmentShader: "qrc:/thebookofshaders/helloworld.frg"
                 //                fragmentShader: "qrc:/thebookofshaders/Shapes.frg"
             }
             Rectangle{
@@ -175,7 +176,7 @@ Window {
             InputParam{
                 width: 300
                 height: 300
-                fragmentShader:"qrc:/thebookofshaders/Color_HSB.frg"
+                fragmentShader:"qrc:/thebookofshaders/PerlinNoise.frg"
             }
             InputParam{
                 width: 300

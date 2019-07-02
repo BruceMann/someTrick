@@ -59,12 +59,11 @@ vec2 random2(vec2 st){
 
 //2D rotate
 vec2 rotate2D(in vec2 st,float angle){
-st-=0.5;
-st = mat2(cos(angle),-sin(angle),
+    st-=0.5;
+    st = mat2(cos(angle),-sin(angle),
           sin(angle),cos(angle))*st;
-st+=0.5;
-return st;
-
+    st+=0.5;
+    return st;
 }
 
 //2D Noise
@@ -85,6 +84,7 @@ float noise(in vec2 st){
             (c-a)*u.y*(1.0-u.x)+
             (d-b)*u.x*u.y;
 }
+
 
 //gradient noise
 float GradientNoise(vec2 st){
@@ -124,7 +124,7 @@ float fbm(in vec2 st){
 
     //Loop of octaves
     for(int i=0;i<OCTAVES;i++){
-        value += amplitude*abs(snoise(st));
+        value += amplitude*(GradientNoise(st*10)+.5);
         //st*=2.0;
         st = rot*st*2.0+shift;
         amplitude *= .5;
@@ -145,19 +145,25 @@ vec2 r = vec2(0.);
 r.x = fbm( st + 1.0*q + vec2(1.7,9.2)+ 0.15*iTime );
 r.y = fbm( st + 1.0*q + vec2(8.3,2.8)+ 0.126*iTime);
 
-float f = fbm(st+r);
+//float f = fbm(st);
+float f = fbm(st+fbm(st+fbm(st)));
+//f = f*2.0;
 
-color = mix(vec3(0.101961,0.619608,0.666667),
-            vec3(0.666667,0.666667,0.498039),
-            clamp((f*f)*4.0,0.0,1.0));
+//color = mix(vec3(0.101961,0.619608,0.666667),
+//            vec3(0.666667,0.666667,0.498039),
+//            clamp((f*f)*4.0,0.0,1.0));
+//
+//color = mix(color,
+//            vec3(0,0,0.164706),
+//            clamp(length(q),0.0,1.0));
+//
+//color = mix(color,
+//           vec3(0.666667,1,1),
+//          clamp(length(q),0.0,1.0));
 
-color = mix(color,
-            vec3(0,0,0.164706),
-            clamp(length(q),0.0,1.0));
+float flow_u = f*f*f+.6*f*f+.5*f;
 
-color = mix(color,
-           vec3(0.666667,1,1),
-          clamp(length(q),0.0,1.0));
+color = vec3(f);
 
-gl_FragColor = vec4((f*f*f+.6*f*f+.5*f)*color,1.);
+gl_FragColor = vec4(color,1.);
 }

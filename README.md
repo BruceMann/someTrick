@@ -8,3 +8,8 @@
 2019.7.1
 柏林噪音和不规则布朗运动的学习
 ![image](https://github.com/BruceMann/someTrick/blob/master/readMeGif/readMe4_gif.gif)
+
+2019.7.2
+from shadertoy https://www.shadertoy.com/view/Ms2SD1 seascape.frg
+Jesus ！！！
+![image](https://github.com/BruceMann/someTrick/blob/master/readMeGif/readMe5_gif.gif)
