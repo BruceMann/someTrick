@@ -22,5 +22,6 @@
         <file>thebookofshaders/FBM.frg</file>
         <file>thebookofshaders/PerlinNoise.frg</file>
         <file>thebookofshaders/Seascape.frg</file>
+        <file>shaders/baisc.vt</file>
     </qresource>
 </RCC>

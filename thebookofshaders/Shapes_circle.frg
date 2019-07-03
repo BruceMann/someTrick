@@ -33,7 +33,7 @@ void main(void){
 
     //use fract
     float dis = distance(abs(st),vec2(0.5));
-    dis = length(max(abs(st)-0.54,0.0));
+    dis = length(max(abs(vec2(st.x*1.6,st.y))-0.6,0.0));
 
 
     //color = vec3(fract(dis*3.0));
